@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <title>Academia ao Ar Livre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+        #mapid {
+            height: 50vh; /* Ajuste a altura do mapa para 50% da altura da janela */
+            width: 100%;
+        }
+        .activity {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        #activities {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%; /* Ajuste a largura da vitrine para 100% da largura da janela */
+        }
+        @media screen and (max-width: 600px) {
+            #mapid {
+                height: 300px;
+            }
+            #activities {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <br></br>
+    <p>Pesquisar por atividade: <input type="text" id="search" placeholder="Pesquisar atividade"></p> 
+    <p>Pesquisar por local: <input type="text" id="search" placeholder="Pesquisar local"></p> 
+    <p>Pesquisar por professor: <input type="text" id="search" placeholder="Pesquisar professor"></p> 
+    <button>Buscar</button>
+    <br></br>
+    <div id="activities"></div>
+    <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('mapid').setView([-22.9068, -43.1729], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Exemplo de dados de atividades
+        var activities = [
+            {   description: 'Corrida no parque',
+                duration: '1 hora',
+                date: '12-12-2023',
+                teacher: 'João',
+                requirements: 'Tênis de corrida',
+                location: [-22.971467, -43.223126]
+            },
+            {   description: 'Futebol',
+                duration: '2 hora',
+                date: '2023-12-25',
+                teacher: 'Matheus',
+                requirements: 'Chuteira e uniformes',
+                location: [-22.978658, -43.219006]
+            },
+            {   description: 'Volei de Areia',
+                duration: '1 hora',
+                date: '2023-12-10',
+                teacher: 'Pedro',
+                requirements: 'Bola e equipamentos próprios',
+                location: [-22.973815, -43.185227]
+            },
+            {   description: 'Ciclismo',
+                duration: '1 hora',
+                date: '2023-12-05',
+                teacher: 'Maria Chiquinha',
+                requirements: 'Capacete, bicicleta e roupa adequada.',
+                location: [-22.973748, -43.204569]
+            },
+            {   description: 'Trilha / Caminhada',
+                duration: '1 hora',
+                date: '2023-12-25',
+                teacher: 'Matheus',
+                requirements: 'Tênis apropriado',
+                location: [-22.972347, -43.203539]
+            },
+            {   description: 'Basquete',
+                duration: '1 hora',
+                date: '2023-12-10',
+                teacher: 'Toinho',
+                requirements: 'Bola e equipamentos próprios',
+                location: [22.980613, -43.206538]
+            },
+            {   description: 'Calistenia',
+                duration: '1 hora',
+                date: '2023-12-28',
+                teacher: 'Pedro De Lara',
+                requirements: 'Roupa leve e tênis',
+                location: [-22.972232, -43.216476]
+            },
+            {   description: 'Patins',
+                duration: '1 hora',
+                date: '2023-12-02',
+                teacher: 'Enéas',
+                requirements: 'Roupa leve, par de patins e equipamento de proteção',
+                location: [-22.972302, -43.216506]
+            },
+            {   description: 'Skate',
+                duration: '1 hora',
+                date: '2023-12-10',
+                teacher: 'Yohanna',
+                requirements: 'Roupa leve, skate e equipamento de proteção',
+                location: [-22.9068, -43.1729]
+            },
+            {   description: 'Arborismo',
+                duration: '1 hora',
+                date: '2023-12-21',
+                teacher: 'Felipe',
+                requirements: 'Tênis e roupa leve',
+                location: [-22.977588, -43.242747]
+            }
+            // Adicione mais atividades aqui
+        ];
+
+        // Função para exibir atividades
+        function displayActivities() {
+            var activitiesDiv = document.getElementById('activities');
+            activitiesDiv.innerHTML = '';
+            activities.forEach(function(activity) {
+                var activityDiv = document.createElement('div');
+                activityDiv.className = 'activity';
+                activityDiv.innerHTML = 
+                    '<h2>' + activity.description + '</h2>' +
+                    '<p>Duração: ' + activity.duration + '</p>' +
+                    '<p>Data: ' + activity.date + '</p>' +
+                    '<p>Professor: ' + activity.teacher + '</p>' +
+                    '<p>Requisitos: ' + activity.requirements + '</p>' +
+                    '<button onclick="showOnMap(' + activity.location + ')">Mostrar no mapa</button>';
+                activitiesDiv.appendChild(activityDiv);
+            });
+        }
+
+        // Função para mostrar a localização de uma atividade no mapa
+        function showOnMap(lat, lng) {
+            map.setView([lat, lng], 14);
+            L.marker([lat, lng]).addTo(map);
+        }
+
+        // Exibir atividades ao carregar a página
+        displayActivities();
+    </script>
+</body>
+</html>

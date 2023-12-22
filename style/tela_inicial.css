@@ -1,0 +1,55 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #1E90FF;
+    width: 100%;
+}
+.navbar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+h1 {
+    font-size: 2em;
+}
+p {
+    font-size: 1em;
+}
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .navbar a {
+        text-align: left;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 0.75em;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.pexels.com/photos/5928656/pexels-photo-5928656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
