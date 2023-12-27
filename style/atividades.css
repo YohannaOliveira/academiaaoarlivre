@@ -48,9 +48,44 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-color: #f3f3f3;
     position: relative;
     height: 100vh;
     margin: 0;
     padding: 0;
-    color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mapid {
+    height: 50vh; /* Ajuste a altura do mapa para 50% da altura da janela */
+    width: 100%;
+}
+
+.activity {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+}
+
+#activities {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%; /* Ajuste a largura da vitrine para 100% da largura da janela */
+}
+
+@media screen and (max-width: 600px) {
+    #mapid {
+        height: 300px;
+    }
+    #activities {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
 }

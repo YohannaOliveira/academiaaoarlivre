@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style/fale_conosco.css" media="screen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notícias</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="tela_inicial.html">Home</a>
+        <a href="atividades.html">Atividades</a>
+        <a href="noticias.html">Notícias</a>
+        <a href="faleconosco.html">Fale Conosco</a>
+        <a href="minha_conta.html">Minha Conta</a>
+        <a href="login.html">Sair</a>
+    </div>
+    <h1>Fale Conosco</h1>
+    <div class="container">
+        <form action="/submit" method="post">
+            <input type="text" name="name" placeholder="Nome" required>
+            <input type="text" name="whatsapp" placeholder="WhatsApp" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <textarea name="input" placeholder="Envie sua sugestão, críticas ou tira sua dúvida conosco."
+                required></textarea>
+            <button onclick="ExibirMensagem()">Enviar</button>
+        </form>
+    </div>
+    <script>
+        function ExibirMensagem() {
+            alert("Agradecemos seu contato. Retornaremos dentro de 24 horas!")
+        }
+    </script>
+</body>
+
+</html>

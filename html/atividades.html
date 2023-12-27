@@ -3,55 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style/atividades.css" media="screen"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
     <title>Academia ao Ar Livre</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            background-color: #f3f3f3;
-        }
-        #mapid {
-            height: 50vh; /* Ajuste a altura do mapa para 50% da altura da janela */
-            width: 100%;
-        }
-        .activity {
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 3px;
-            border: 1px solid #ddd;
-        }
-        #activities {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 10px;
-            width: 100%; /* Ajuste a largura da vitrine para 100% da largura da janela */
-        }
-        @media screen and (max-width: 600px) {
-            #mapid {
-                height: 300px;
-            }
-            #activities {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(5, 1fr);
-            }
-        }
-    </style>
 </head>
 <body>
-    <br></br>
+    <div class="navbar">
+        <a href="tela_inicial.html">Home</a>
+        <a href="atividades.html">Atividades</a>
+        <a href="noticias.html">Notícias</a>
+        <a href="fale_conosco.html">Fale Conosco</a>
+        <a href="minha_conta.html">Minha Conta</a>
+        <a href="login.html">Sair</a>
+    </div>
+    <br>
     <p>Pesquisar por atividade: <input type="text" id="search" placeholder="Pesquisar atividade"></p> 
     <p>Pesquisar por local: <input type="text" id="search" placeholder="Pesquisar local"></p> 
     <p>Pesquisar por professor: <input type="text" id="search" placeholder="Pesquisar professor"></p> 
     <button>Buscar</button>
-    <br></br>
+    <br>
     <div id="activities"></div>
     <div id="mapid"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
