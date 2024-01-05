@@ -70,6 +70,7 @@ body {
 #mapid {
     height: 50vh; /* Ajuste a altura do mapa para 50% da altura da janela */
     width: 100%;
+    margin-top: -22em; /* Diminui o espaço entre o grid de atividades e o mapa */
 }
 
 .activity {

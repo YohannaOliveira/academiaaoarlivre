@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style/atividades.css" media="screen"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <style>
+        .button-spacing {
+            margin-right: 1em; /* Espaçamento responsivo */
+        }
+    </style>
     <title>Academia ao Ar Livre</title>
 </head>
 <body>
@@ -43,28 +48,28 @@
             },
             {   description: 'Ciclismo',
                 duration: '1 hora',
-                date: '2023-12-05',
+                date: '05-12-2023',
                 teacher: 'Maria Helena',
-                requirements: 'Capacete, bicicleta e roupa leve.',
+                requirements: 'Capacete, bicicleta e roupa leve',
                 location: [-22.973748, -43.204569]
             },
             {   description: 'Trilha / Caminhada',
                 duration: '1 hora',
-                date: '2023-12-25',
+                date: '26-12-2023',
                 teacher: 'Matheus',
                 requirements: 'Tênis apropriado e Roupa Leve',
                 location: [-22.972347, -43.203539]
             },
             {   description: 'Patins',
                 duration: '1 hora',
-                date: '2023-12-02',
+                date: '01-12-2023',
                 teacher: 'Letícia',
                 requirements: 'Roupa leve, Patins próprio e equipamento de proteção',
                 location: [-22.972302, -43.216506]
             },
             {   description: 'Skate',
                 duration: '1 hora',
-                date: '2023-12-10',
+                date: '10-12-2023',
                 teacher: 'Wagner',
                 requirements: 'Roupa leve, skate e equipamento de proteção',
                 location: [-22.9068, -43.1729]
@@ -85,7 +90,8 @@
                     '<p>Data: ' + activity.date + '</p>' +
                     '<p>Professor: ' + activity.teacher + '</p>' +
                     '<p>Requisitos: ' + activity.requirements + '</p>' +
-                    '<button onclick="showOnMap(' + activity.location + ')">Mostrar no mapa</button>';
+                    '<button class="button-spacing" onclick="showOnMap(' + activity.location + ')">Mostrar no mapa</button>' +
+                    '<button>Confirmar presença</button>'; // Botão adicionado
                 activitiesDiv.appendChild(activityDiv);
             });
         }
